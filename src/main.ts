@@ -17,9 +17,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3210',
-      'http://ponto.localhost:3210',
       'https://dedicado.digital',
-      'https://ponto.dedicado.digital',
     ],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   })
@@ -28,11 +26,16 @@ async function bootstrap() {
     .setTitle('Default Management API')
     .setDescription('Default Management API')
     .setVersion('1.0')
+    .addApiKey({
+      type: 'apiKey',
+      in: 'header',
+      description: 'authorizationKey',
+    })
     .build()
 
   const document = SwaggerModule.createDocument(app, options)
   SwaggerModule.setup('', app, document)
 
-  await app.listen(PORT || 3030)
+  await app.listen(PORT || 3000)
 }
 bootstrap()
