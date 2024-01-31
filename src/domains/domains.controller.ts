@@ -30,7 +30,7 @@ export class DomainsController {
     return this.domainsService.create(createDomainDto)
   }
 
-  @UseGuards(AuthGuard('authorization'))
+  @UseGuards(AuthGuard('authorizationKey'))
   @ApiOkResponse()
   @ApiNotFoundResponse()
   @UseInterceptors(ClassSerializerInterceptor)
@@ -39,7 +39,7 @@ export class DomainsController {
     return this.domainsService.findAll()
   }
 
-  @UseGuards(AuthGuard('authorization'))
+  @UseGuards(AuthGuard('authorizationKey'))
   @ApiOkResponse()
   @ApiNotFoundResponse()
   @UseInterceptors(ClassSerializerInterceptor)
@@ -48,7 +48,7 @@ export class DomainsController {
     return this.domainsService.findByOrganization(organization)
   }
 
-  @UseGuards(AuthGuard('authorization'))
+  @UseGuards(AuthGuard('authorizationKey'))
   @ApiOkResponse()
   @ApiNotFoundResponse()
   @UseInterceptors(ClassSerializerInterceptor)
@@ -57,7 +57,7 @@ export class DomainsController {
     return this.domainsService.findOne(id)
   }
 
-  @UseGuards(AuthGuard('authorization'))
+  @UseGuards(AuthGuard('authorizationKey'))
   @ApiOkResponse()
   @ApiNotFoundResponse()
   @UseInterceptors(ClassSerializerInterceptor)
@@ -66,7 +66,7 @@ export class DomainsController {
     return this.domainsService.update(id, updateDomainDto)
   }
 
-  @UseGuards(AuthGuard('authorization'))
+  @UseGuards(AuthGuard('authorizationKey'))
   @ApiOkResponse()
   @ApiNotFoundResponse()
   @UseInterceptors(ClassSerializerInterceptor)
